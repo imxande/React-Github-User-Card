@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
-function App() {
+class App extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      users: []
+    };// end of state
+  }// end of constructor
+
+ // componentDidMount method
+ componentDidMount(){
+  axios.get('https://api.github.com/users/imxande')
+  .then(response =>{
+    this.setState({users: response.data})
+    console.log(this.state.users)
+  })
+}// end of componentDidMount method
+
+render(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      User Card goes in here
     </div>
-  );
-}
+  )
+}// end of render
+
+}// end of class App
 
 export default App;

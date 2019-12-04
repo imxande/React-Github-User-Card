@@ -1,10 +1,10 @@
 import React from 'react';
 
 function UserCard(props){
-    console.log(props);
+    // console.log(props);
     return (
         <div >
-            {props.followers.map(item => (
+            {props.user.map(item => (
                 <div className = 'card' key = {item.id} >
                     {/* <img> {item.avatar_url} </img> */}
                     <div className= 'card-info'>

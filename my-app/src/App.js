@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
+import UserCard from './components/UserCard';
 
 class App extends React.Component {
   constructor(){
@@ -14,7 +15,7 @@ class App extends React.Component {
  componentDidMount(){
   axios.get('https://api.github.com/users/imxande')
   .then(response =>{
-    this.setState({users: response.data})
+    this.setState({users: [...this.state.users, response.data ]})
     console.log(this.state.users)
   })
 }// end of componentDidMount method
@@ -22,7 +23,7 @@ class App extends React.Component {
 render(){
   return (
     <div>
-      User Card goes in here
+      <UserCard followers = {this.state.users} />
     </div>
   )
 }// end of render

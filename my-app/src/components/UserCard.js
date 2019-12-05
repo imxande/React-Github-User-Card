@@ -6,17 +6,15 @@ function UserCard(props){
         <div >
             {props.user.map(item => (
                 <div className = 'card' key = {item.id} >
-                    {/* <img> {item.avatar_url} </img> */}
+                    <img src= {item.avatar_url}/>
                     <div className= 'card-info'>
-                        <h3 className> {item.name} </h3>
+                        <h3> {item.name} </h3>
                         <p className= 'username'> {item.login} </p>
-                        <p> Location: {item.location} </p>
+    
                         <p>Profile:  
                             <a href={item.html_url}>{item.html_url}</a>
                         </p>
-                        <p>Followers: {item.followers}</p>
-                        <p>Following: {item.following}</p>
-                        <p>Bio: {item.bio}</p>
+                        
                     </div>
                 </div>
                
